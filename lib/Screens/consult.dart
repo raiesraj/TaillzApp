@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:taillz/Screens/top_area.dart';
+import 'package:taillz/Commponenets/custom_image_button.dart';
+import 'package:taillz/Screens/women_talk.dart';
 
 class Consult extends StatefulWidget {
   const Consult({Key? key}) : super(key: key);
@@ -11,68 +13,23 @@ class Consult extends StatefulWidget {
 }
 
 class _ConsultState extends State<Consult> {
+
+  bool status = false;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5),
-                        child: InkWell(
-                          onTap: () {},
-                          child: Ink(
-                            height: 200,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  'asset/images/relationship.jpg',
-                                ),
-                              ),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: InkWell(
-                        onTap: () {},
-                        child: Ink(
-                          height: 200,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                'asset/images/relationship.jpg',
-                              ),
-                            ),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 160,horizontal: 20),
-                  child: Text(
-                    'Relationships',
-                    style: GoogleFonts.montserrat(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 20),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+    return status?WomenTalk(
+      onBackPressed: (){
+      setState(() {
+        status= false;
+      });
+    },):Scaffold(
+      backgroundColor: Colors.white,
+      body: Row(
+        children: [
+        ],
       ),
-    );
+      );
   }
 }
+
